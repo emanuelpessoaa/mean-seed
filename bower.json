@@ -1,0 +1,20 @@
+{
+  "name": "mean-seed",
+  "version": "0.0.1",
+  "homepage": "https://github.com/emanuelpessoaa/mean-seed",
+  "authors": [
+    "Emanuel Pessoa <emanuelpessoaa@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/javascript/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3"
+  }
+}
