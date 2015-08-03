@@ -1,0 +1,13 @@
+{
+  "name": "MEAN-Seed",
+  "description": "blablabla",
+  "license": "MIT",
+  "repository": "https://github.com/emanuelpessoaa/mean-seed",
+  "issues": "https://github.com/emanuelpessoaa/mean-seed/issues",
+  "wiki": "https://github.com/emanuelpessoaa/mean-seed/wiki",
+  "author": {
+    "name": "Emanuel Pessoa",
+    "email": "emanuelpessoaa@gmail.com",
+    "url": "http://emanuelpessoa.com.br"
+  }
+}
