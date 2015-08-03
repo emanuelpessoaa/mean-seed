@@ -7,8 +7,6 @@ This project is an application skeleton for a typical MEAN Full Stack. You can u
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Compiling](#compiling-)
 - [Contributing](#contributing)
-
-
 - [Authors](#authors)
 - [License](#license)
 
