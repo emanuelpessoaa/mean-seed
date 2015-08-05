@@ -15,6 +15,8 @@
     "debug": "~2.1.1",
     "express": "~4.12.2",
     "jade": "~1.9.2",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.1.0",
     "morgan": "~1.5.1",
     "serve-favicon": "~2.2.0"
   },
@@ -24,4 +26,5 @@
     "url": "https://github.com/emanuelpessoa/mean-seed/issues"
   },
   "homepage": "https://github.com/emanuelpessoaa/mean-seed#readme",
+  "devDependencies": {}
 }
