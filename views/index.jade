@@ -1,5 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Olá MEAN Seed
+  ul
+    li
+      a(href='/') Início
+    li
+      a(href='/users') Usuários
+
+  div(data-ng-view)
+
+  script(src='javascript/lib/angular/angular.js')
+  script(src='javascript/lib/angular-route/angular-route.min.js')
+  script(src='javascript/app.js')
+  script(src='javascript/controllers.js')
+    
+  script(src='javascript/modules/users/index.js')
+  script(src='javascript/modules/users/controllers.js')
+  script(src='javascript/modules/users/services.js')
+
