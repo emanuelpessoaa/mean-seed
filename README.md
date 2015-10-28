@@ -1,5 +1,5 @@
 # MEAN-Seed
-
+.
 This project is an application skeleton for a typical MEAN Full Stack. You can use it to quickly bootstrap your projects and dev environment for these projects.
 
 ## Table of contents
