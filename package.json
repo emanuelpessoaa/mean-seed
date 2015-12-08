@@ -13,15 +13,15 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "body-parser": "~1.12.0",
-    "cookie-parser": "~1.3.4",
-    "debug": "~2.1.1",
-    "express": "~4.12.2",
-    "jade": "~1.9.2",
+    "body-parser": "~1.14.1",
+    "cookie-parser": "~1.4.0",
+    "debug": "~2.2.0",
+    "express": "~4.13.3",
+    "jade": "^1.11.0",
     "method-override": "^2.3.5",
-    "mongoose": "^4.1.0",
-    "morgan": "~1.5.1",
-    "serve-favicon": "~2.2.0"
+    "mongoose": "^4.2.9",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
   },
   "author": "Emanuel Pessoa",
   "license": "MIT",
@@ -31,9 +31,9 @@
   "homepage": "https://github.com/emanuelpessoaa/mean-seed#readme",
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-jshint": "~0.11.3",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-uglify": "~0.5.0"
+    "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-uglify": "~0.11.0"
   }
 }
