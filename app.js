@@ -10,7 +10,7 @@ var db = require('./config/db'),
 
 var api = {};
 api.users = require('./modules/users/routes/api');
-
+//teste
 var app = module.exports = express();
 
 // View engine setup
