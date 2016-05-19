@@ -1,159 +1,54 @@
-/**
- * 
- * Module Users - Controller
- * 
- */
+(function(){
 
-var User = require("./model.js");
+  var Service = require('./service'),
+      cb = function(req, res, data) {
+              console.log('Success: ', data);
+              res.json(data);
+           };
 
-var Controller = {
+  function create(req, res) {
   
-  create: function(req, res) {
-    var dados = req.body;
-    var model = new User(dados);
-
-    model.save(function (err, data) {
-      if (err){
-        console.log('Erro: ', err);
-        res.json('Erro: ' + err);
-      }
-      else{
-        console.log('Usuário inserido: ', data);
-        res.json(data);
-      }
-    });
-  },
+    Service.create(req, res, cb);
   
-  retrieve: function(req, res) {
-    var query = {};
-    User.find(query, function (err, data) {
-      if (err){
-        console.log('Erro: ', err);
-        res.json('Erro: ' + err);
-      }
-      else{
-        console.log('Usuários listados: ', data);
-        res.json(data);
-      }
-    });
-  },
+  }; //eof create
+
+
+  function retrieve(req, res) {
   
-  get: function(req, res) {
-    var query = {_id: req.params.id};
-    User.findOne(query, function (err, data) {
-      if (err){
-        console.log('Erro: ', err);
-        res.json('Erro: ' + err);
-      }
-      else{
-        console.log('Usuário listado: ', data);
-        res.json(data);
-      }
-    });
-  },
+    Service.retrieve(req, res, cb);
   
-  update: function(req, res) {
-    var query = {_id: req.params.id};
-    var mod = req.body;
+  }; //eof retrieve
 
-    User.update(query, mod, function (err, data) {
-      if (err){
-        console.log('Erro: ', err);
-        res.json('Erro: ' + err);
-      }
-      else{
-        console.log('Usuário alterado: ', data);
-        res.json(data);
-      }
-    });
-  },
+
+  function get(req, res) {
   
-  delete: function(req, res) {
-    var query = {_id: req.params.id};
-
-    User.remove(query, function(err, data) {
-      if (err){
-        console.log('Erro: ', err);
-        res.json('Erro: ' + err);
-      }
-      else{
-        console.log('Usuário deletado: ', data);
-        res.json(data);
-      }
-    });
-  },
+    Service.get(req, res, cb);
   
-  renderList: function(req, res) {
+  }; //eof get
 
-    var query = {};
-    User.find(query, function (err, data) {
-      if (err){
-        console.log('Erro: ', err);
-        res.render('users/error', { error: err });
-      }
-      else{
-        console.log('Usuários listados: ', data);
-        res.render('users/index', {
-          title: 'Listagem dos Usuários',
-          users: data
-        });
-      }
-    });
-  },
-  renderGet: function(req, res) {
 
-    var query = {_id: req.params.id};
-    User.findOne(query, function (err, data) {
-      if (err){
-        console.log('Erro: ', err);
-        res.render('users/error', { error: err });
-      }
-      else{
-        console.log('Usuário consultado: ', data);
-        res.render('users/get', {
-          title: 'Usuários ' + data.name,
-          movie: data
-        });
-      }
-    });
-  },
-  renderCreate: function(req, res) {
-    res.render('users/create');
-  },
-  renderUpdate: function(req, res) {
+  function update(req, res) {
+  
+    Service.update(req, res, cb);
+  
+  }; //eof update
 
-    var query = {_id: req.params.id};
-    User.findOne(query, function (err, data) {
-      if (err){
-        console.log('Erro: ', err);
-        res.render('users/error', { error: err });
-      }
-      else{
-        console.log('Usuário alterado: ', data);
-        res.render('users/update', { 
-          title: 'Usuário ' + data.name,
-          movie: data
-        });
-      }
-    });
-  },
-  renderRemove: function(req, res) {
 
-    var query = {_id: req.params.id};
-    User.findOne(query, function (err, data) {
-      if (err){
-        console.log('Erro: ', err);
-        res.render('users/error', { error: err });
-      }
-      else{
-        console.log('Usuário removido: ', data);
-        res.render('users/remove', {
-          title: 'Remove Usuário ' + data.name,
-          movie: data
-        });
-      }
-    });
-  }
-};
+  function remove(req, res) {
+  
+    Service.remove(req, res, cb);
+  
+  }; //eof remove
 
-module.exports = Controller;
+
+  var Controller = {
+    create:   create,
+    retrieve: retrieve,
+    get:      get,
+    update:   update,
+    remove:   remove
+  };
+
+  module.exports = Controller;
+
+})()

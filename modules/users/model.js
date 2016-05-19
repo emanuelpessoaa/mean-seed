@@ -1,12 +1,12 @@
-var mongoose = require('mongoose');
+var mongoose        = require('mongoose'),
+    modelName       = 'User',
+    collectionName  = 'users';
+
+
 var Schema = mongoose.Schema;
 
-var UsersSchema = new Schema({
+var schema = new Schema(require('./schema'));
 
-    username: { type: String, index: { unique: true }, default: '' },
-    firstname: { type: String, default: '' },
-    lastname: { type: String, default: '' },
-    age: { type: Number, default: ''}
-});
+var Model = mongoose.model(modelName, schema, collectionName);
 
-module.exports = mongoose.model('User', UsersSchema);
+module.exports = Model;
