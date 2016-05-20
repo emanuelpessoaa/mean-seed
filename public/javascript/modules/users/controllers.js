@@ -4,30 +4,30 @@
 
   angular
     .module('myApp.users.Controllers', [])
-    .controller('UsersController', UsersController)
-    .controller('UserCreateController', UserCreateController)
-    .controller('UsersGetController', UsersGetController)
-    .controller('UsersEditController', UsersEditController);
+    .controller('retrieveUsersController', retrieveUsersController)
+    .controller('createUsersController', createUsersController)
+    .controller('getUsersController', getUsersController)
+    .controller('editUsersController', editUsersController);
 
-  function UsersController($scope, $http, UserService) {  
-
-  };
-
-  function UserCreateController($scope, $http, MovieService, $location) {      
+  function retrieveUsersController($scope, $http, UserService) {  
 
   };
 
-  function UsersGetController($scope, $http, $routeParams, MovieService) {
+  function createUsersController($scope, $http, UserService, $location) {      
 
   };
 
-  function UsersEditController($scope, $http, $routeParams, MovieService) {
+  function getUsersController($scope, $http, $stateParams, UserService) {
+
+  };
+
+  function editUsersController($scope, $http, $stateParams, UserService) {
     
   }
 
-  UsersController.$inject = ['$scope', '$http', 'UserService'];
-  UserCreateController.$inject = ['$scope', '$http', 'UserService', '$location']
-  UsersGetController.$inject = ['$scope', '$http', '$routeParams', 'UserService']
-  UsersEditController.$inject = ['$scope', '$http', '$routeParams', 'UserService'];
+  retrieveUsersController.$inject = ['$scope', '$http', 'UserService'];
+  createUsersController.$inject = ['$scope', '$http', 'UserService', '$location']
+  getUsersController.$inject = ['$scope', '$http', '$routeParams', 'UserService']
+  editUsersController.$inject = ['$scope', '$http', '$routeParams', 'UserService'];
 
 })();

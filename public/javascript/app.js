@@ -4,15 +4,14 @@
 
   angular
     .module('myApp', [
-      'ngRoute',
+      'ui.router',
       'myApp.controllers',
       'myApp.users'
     ])
-    .config(function ($routeProvider, $locationProvider) {
-    $routeProvider.
-      otherwise({
-        redirectTo: '/'
-      });
+    .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+      
+      $urlRouterProvider.otherwise("/");
+      
 
     $locationProvider.html5Mode(true);
   });

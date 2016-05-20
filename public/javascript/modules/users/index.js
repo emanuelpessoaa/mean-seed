@@ -4,31 +4,39 @@
 
   angular
     .module('myApp.users', [
-      'ngRoute',
+      'ui.router',
       'myApp.users.Controllers',
       'myApp.users.Service'   
     ])
-    .config(['$routeProvider', function($routeProvider) {
-      $routeProvider
-        .when('/users', {
-          templateUrl: 'javascript/modules/users/views/users.html',
-          controller: 'UsersController'
+    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+      
+      $stateProvider
+        .state('retrieveUsers', {
+          url: "/users",
+          templateUrl: "javascript/modules/users/views/users.html",
+          controller: 'retrieveUsersController'
         })
-        .when('/users/create', {
-          templateUrl: 'javascript/modules/users/views/create.html',
-          controller: 'UserCreateController'
+      $stateProvider
+        .state('createUser', {
+          url: "/users/create",
+          templateUrl: "javascript/modules/users/views/create.html",
+          controller: 'createUsersController'
         })
-        .when('/users/:id', {
-          templateUrl: 'javascript/modules/users/views/get.html',
-          controller: 'UsersGetController'
+      $stateProvider
+        .state('getUser', {
+          url: "/users/:id",
+          templateUrl: "javascript/modules/users/views/get.html",
+          controller: 'getUsersController'
         })
-        .when('/users/:id/edit', {
-          templateUrl: 'javascript/modules/users/views/update.html',
-          controller: 'UsersEditController'
+      $stateProvider
+        .state('editUser', {
+          url: "/users/:id/edit",
+          templateUrl: "javascript/modules/users/views/update.html",
+          controller: 'editUsersController'
         })
-        .otherwise({
-          redirectTo: '/users'
-        });
+
+      $urlRouterProvider.otherwise("/");
+        
     }])
 
 })();
