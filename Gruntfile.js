@@ -2,8 +2,43 @@
 module.exports = function(grunt) {
   'use strict';
   
+grunt.registerTask("prepareModules", "Finds and prepares modules for concatenation.", function() {
+
+    grunt.file.expand("public/javascript/modules/*").forEach(function (dir) {
+
+        var dirName = dir.substr(dir.lastIndexOf('/')+1);
+
+        var concat = grunt.config.get('concat') || {};
+        var uglify = grunt.config.get('uglify') || {};
+        
+        concat[dirName] = {
+            src: [dir + '/**/*.js'],
+            dest: 'public/javascript/modules/' + dirName + '/'+ dirName + 'Module.min.js'
+        };
+        
+        uglify: {
+          build: {
+            files: {
+              'public/javascript/modules/' + dirName + '/'+ dirName + 'Module.min.js',
+              ['public/javascript/modules/' + dirName + '/'+ dirName + 'Module.min.js']
+            }
+          }
+        }
+        
+        grunt.config.set('concat', concat);
+        grunt.config.set('uglify', concat);
+                
+    });
+    
+     grunt.task.run('concat')
+     grunt.task.run('uglify')
+     
+});
+
+  
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    
     injector: {
       options: {
         template: 'public/index.html',
@@ -37,11 +72,11 @@ module.exports = function(grunt) {
   });
   grunt.loadNpmTasks('grunt-injector');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  // grunt.loadNpmTasks('grunt-contrib-concat');
-  // grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
 
-  grunt.registerTask('default', ['injector', 'jshint', 'watch']);
+  grunt.registerTask('default', ['injector', 'jshint', 'watch','prepareModules', 'concat', 'uglify']);
 
 };
