@@ -11,29 +11,39 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,500" rel="stylesheet">
   <!-- injector:css -->
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
   <!-- endinjector -->
 </head>
-<body data-ng-controller="AppCtrl" ng-cloak>
+<body ng-cloak>
 
-<div class="row">
-  <h1>Olá MEAN Seed</h1>
-  <ul class="list-unstyled">
-    <li><a ui-sref="home">Home</a></li>
-    <li><a ui-sref="retrieveUsers">Users</a></li>
-  </ul>
+<div class="container">
+    <div class="jumbotron">
+      <div class="row">
+        <span>And there you have it! </span>
+        <h1>MEAN-Seed</h1>
+      </div>
+    </div>
+
+    <ul class="list-unstyled">
+      <li><a ui-sref="home" class="">Home</a></li>
+      <li><a ui-sref="users">Users</a></li>
+    </ul>
+
+  
+  <div data-ui-view></div>
 </div>
-    
-<div data-ui-view></div>  
+  
   <!-- injector:js -->
-  <script src="/javascript/lib/angular/angular.min.js"></script>
-  <script src="/javascript/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <script src="/javascript/app.js"></script>
-  <script src="/javascript/controllers.js"></script>
-  <script src="/javascript/modules/users/controllers.js"></script>
-  <script src="/javascript/modules/users/index.js"></script>
-  <script src="/javascript/modules/users/services.js"></script>
+  <script src="javascript/lib/angular/angular.min.js"></script>
+  <script src="javascript/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="javascript/app.js"></script>
+  <script src="javascript/modules/users/index.js"></script>
+  <script src="javascript/modules/users/controllers.js"></script>
+  <script src="javascript/modules/users/services.js"></script>
+  <script src="javascript/modules/main/index.js"></script>
+  <script src="javascript/modules/main/controllers.js"></script>
   <!-- endinjector -->
 </body>
 </html>

@@ -6,15 +6,15 @@
     .module('myApp.users', [
       'ui.router',
       'myApp.users.Controllers',
-      'myApp.users.Service'   
+      'myApp.users.Service'
     ])
-    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
       
       $stateProvider
-        .state('retrieveUsers', {
+        .state('users', {
           url: "/users",
           templateUrl: "javascript/modules/users/views/users.html",
-          controller: 'retrieveUsersController'
+          controller: 'retrieveUsersController as vm'
         })
         .state('createUser', {
           url: "/users/create",
@@ -33,6 +33,8 @@
         });
 
       $urlRouterProvider.otherwise("/");
+      $locationProvider.html5Mode(true);
+      
         
     }]);
 

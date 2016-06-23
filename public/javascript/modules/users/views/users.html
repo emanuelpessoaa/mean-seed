@@ -1,1 +1,9 @@
-<h1>Lista de Usuários</h1>
+<h1>{{vm.title}}</h1>
+
+<section>
+    <ul class="list-unstyled">
+        <li data-ng-repeat="item in vm.users">{{item.name}}</li>
+    </ul>
+</section>
+
+

@@ -1,8 +1,4 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
+body {font-size:14px;font-family: 'Roboto', sans-serif;}
+a{color: #00B7FF;}
+h1{font-weight: 100}
+.jumbotron{ text-align: center; background: none}.jumbotron span{font-weight: 100;font-size: 17px;letter-spacing: 9px;} .jumbotron h1{margin: 0; font-weight: 500}

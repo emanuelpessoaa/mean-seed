@@ -13,32 +13,29 @@ grunt.registerTask("prepareModules", "Finds and prepares modules for concatenati
         
         concat[dirName] = {
             src: [dir + '/**/*.js'],
-            dest: 'public/javascript/modules/' + dirName + '/'+ dirName + 'Module.min.js'
+            dest: 'public/javascript/modules/' + dirName + '/'+ dirName + 'Module.js'
         };
-        
-        uglify: {
-          build: {
-            files: {
-              'public/javascript/modules/' + dirName + '/'+ dirName + 'Module.min.js',
-              ['public/javascript/modules/' + dirName + '/'+ dirName + 'Module.min.js']
-            }
-          }
-        }
+             
         
         grunt.config.set('concat', concat);
-        grunt.config.set('uglify', concat);
                 
     });
     
      grunt.task.run('concat')
-     grunt.task.run('uglify')
      
 });
 
   
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    
+    uglify: {
+          build: {
+            files: {
+              'public/javascript/modules/users/usersModule.min.js' : 
+              ['public/javascript/modules/users/usersModule.js']
+            }
+          }
+    },
     injector: {
       options: {
         template: 'public/index.html',
@@ -50,19 +47,19 @@ grunt.registerTask("prepareModules", "Finds and prepares modules for concatenati
         files: {
           'public/index.html':  ['bower.json',
                                 'public/javascript/*.js',
-                                'public/javascript/modules/**/*.js',
+                                'public/javascript/modules/**/*.min.js',
                                 'public/stylesheets/*.css'
                                 ]
         }
       }
     },
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc',
-        jshintignore: '.jshintignore',
-      },
-      all: ['Gruntfile.js', 'public/javascript/**/*.js' ]
-    },
+    // jshint: {
+    //   options: {
+    //     jshintrc: '.jshintrc',
+    //     jshintignore: '.jshintignore',
+    //   },
+    //   all: ['Gruntfile.js', 'public/javascript/**/*.js' ]
+    // },
     watch: {
       jshint: {
         files: ['public/javascript/**/*.js'],

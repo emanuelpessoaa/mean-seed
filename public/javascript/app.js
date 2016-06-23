@@ -5,8 +5,9 @@
   angular
     .module('myApp', [
       'ui.router',
-      'myApp.controllers',
-      'myApp.users'
+      'myApp.users',
+      'myApp.main'
+      
     ])
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
       

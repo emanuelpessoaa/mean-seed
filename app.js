@@ -10,33 +10,34 @@ var db = require('./config/db'),
 
 var api = {};
 api.users = require('./modules/users/routes/api');
-//teste
+
 var app = module.exports = express();
 
-// View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+    next();
+}
+
+app.use(allowCrossDomain);
+
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res, next) {  
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
-    next();
-});
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/api/users', api.users);
 
 app.get('*', function(req, res, next) {
-  // res.render('index');
+  res.sendFile('public/index.html' , { root : __dirname});
 });
 
 
